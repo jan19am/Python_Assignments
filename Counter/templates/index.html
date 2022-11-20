@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        .wrapper {
+            display:flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div>
+            <h1>Counter</h1>
+        </div>
+        <div>
+            <form action="/counter" method="post">
+                {% if session['clicked'] == 1 %}
+                <h3> {{session['clicked']}} time </h3>
+                {% else %}
+                <h3> {{session['clicked']}} times </h3>
+                {% endif %}
+                <input type="submit" name="clicked">
+                <input type="submit" name="clicked" value="Reset">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
