@@ -1,0 +1,43 @@
+.wrapper {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    overflow: hidden;
+    width: 75%;
+}
+
+label {
+    float: left;
+    width: 200px;
+    padding-right: 24px;
+}
+
+input, select, textarea {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+    width: calc(100% - 200px);
+}
+
+button {
+    float: right;
+    width: calc(100% - 200px);
+}
+
+.link{
+    margin-top: 20px;
+    float: left;
+    width: 120px;
+}
+
+.row {
+    display: flex;
+}
+
+h3 {
+    width: 165px;
+    margin-right: 20px;
+}
