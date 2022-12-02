@@ -1,0 +1,28 @@
+table, th, td {
+    border:1px solid black;
+}
+
+table, h1 {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.heading {
+    width: 100%;
+}
+
+.link {
+    margin-left: 50%;
+    margin-right: 10%;
+}
+
+.button {
+    margin-top: 20px;
+}
