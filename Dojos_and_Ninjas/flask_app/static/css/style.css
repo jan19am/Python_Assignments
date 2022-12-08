@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.container {
+    border: 2px solid black;
+    padding: 10px 0;
+}
+
+.list_name {
+    padding: 10px 30px;
+}
+
+.form-select, form-control {
+    margin-bottom: 10px;
+}
+
+.link {
+    margin-top: 20px;
+}
+
+.button {
+    margin: 20px 0;
+}
