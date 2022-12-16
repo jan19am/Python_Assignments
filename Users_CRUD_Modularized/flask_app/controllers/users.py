@@ -33,3 +33,39 @@ def create_user():
 def user_form():
     
     return render_template('form.html')
+
+
+# Displays single user by Id
+@app.route('/users/<int:id>')
+def display_user(id):
+
+    return render_template('show.html', 
+    user_id = User.getById({'id' : id}))
+
+
+# Deletes user
+@app.route('/users/delete/<int:id>')
+def delete_user(id):
+
+    User.deleteById({'id' : id})
+    return redirect('/users')
+
+# Edit User form
+@app.route('/users/<int:id>/edit')
+def update_form(id):
+    print(id)
+    return render_template('edit.html', 
+    user_update = User.getById({'id' : id}))
+
+
+@app.route('/users/update/<int:id>', methods=["POST"])
+def edit_user(id):
+
+    data = {
+        'first_name' : request.form['first_name'],
+        'last_name' : request.form['last_name'],
+        'email' : request.form['email'],
+        'id' : id
+    }
+    User.editById(data) 
+    return redirect('/users')

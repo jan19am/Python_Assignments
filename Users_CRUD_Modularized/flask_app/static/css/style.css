@@ -26,3 +26,17 @@ table, h1 {
 .button {
     margin-top: 20px;
 }
+
+.top {
+    display: flex;
+}
+
+.containers {
+    display: flex;
+}
+
+.lables{
+    width: 200px;
+}
+
+
