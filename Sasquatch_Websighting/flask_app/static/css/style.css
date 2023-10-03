@@ -1,0 +1,176 @@
+/* Edits to original naming conventions */
+h1 {
+    padding: 10px 0px;
+}
+
+a {
+    padding-left: 10px;
+}
+
+
+/* NOTE: The following class descriptions will
+   be grouped by the template they appear on */
+
+
+/** Dashboard Template **/
+
+/* NOTE: dashboard can be found in 
+   Edit and Show Template */
+#dashboard {
+    display: flex;
+    align-items: baseline;
+    padding: 20px;
+    background-color: rgb(139, 202, 80);
+    color: white;
+}
+
+#body {
+    display: flex;
+    background-color: rgb(246, 230, 206);
+    padding: 40px 20px 20px;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+/* Contents */
+
+/* NOTE: content can be found on Edit
+   and Show Template */
+.content {
+    display: flex; 
+}
+
+.content--reported-sightings {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+
+.form {
+    padding-right: 30px;
+    padding-bottom: 40px;
+}
+
+.links {
+    display: flex;
+    padding-left: 20px;
+}
+
+/* Titles */
+.title__main {
+    flex-grow: 3;
+}
+
+.title__main--dashboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;    
+    flex-grow: 1;
+}
+
+/* NOTE: title__body can also be found in
+   Login and Show Template */
+.title__body {
+    color: rgb(94, 68, 35);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.card--report {
+    flex-grow: 1;
+    border-radius: 25px;
+    background-color: white;
+    margin-right: 20px;
+    padding: 0px 40px 40px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card--sightings {
+    flex-grow: 3;
+    border-radius: 25px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+
+/* NOTE: button can also be found in
+   Login Template */
+.button {
+    margin-top: 10px;
+    border-radius: 12px;
+    background-color: rgb(162, 112, 79);
+    color: rgb(71, 43, 42);
+}
+
+.button__logout {
+    font-size: 12px;
+    margin-top: 10px;
+    border-radius: 12px;
+    background-color: rgb(162, 112, 79);
+    color: rgb(71, 43, 42);
+}
+
+
+
+
+/** Edit Template **/
+
+/* NOTE: title__main--show can be found
+   in Show Template */
+.title__main--show{
+    flex-grow: 3;
+    flex-direction: column;
+}
+
+/* NOTE: body--show can be found in Show Template */
+.body--show {
+    background-color: rgb(246, 230, 206);
+    padding: 10px 30px 60px;
+    height:100vh;
+}
+
+/* NOTE: card can be found in Show Template */
+.card {
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    padding: 0px 40px 40px;
+    width: 65%;
+}
+
+
+
+
+/** Login Template **/
+.body--login {
+    display: flex;
+    background-image: url('https://wallpapercave.com/wp/wp6332833.jpg');
+    padding: 40px 20px 20px;
+    align-items: baseline;
+    height:100vh;
+}
+
+.card--login{
+    border-radius: 25px;
+    /* background-color: rgb(185, 221, 151); */
+    background: rgba(204, 204, 204, 0.5);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    margin: 20px 0 0 20px;
+    padding: 0px 40px 40px;
+    width: 65%;
+}
+
+
+
+
+/** Show Template **/
+.comment {
+    margin-left: 20px;
+    overflow-wrap: break-word; 
+}

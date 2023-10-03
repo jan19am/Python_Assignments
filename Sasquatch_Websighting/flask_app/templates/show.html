@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Sasquatch Websighting</title>
+</head>
+<body>
+    <div>
+        <div id="dashboard">
+            <div class="title__main--show">
+                <h1>Sasquatch Websighting</h1>
+                <a href="/dashboard">
+                    <input class="button" type="submit" value="Dashboard">
+                </a>
+            </div>
+
+            <div>
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                <a href="/logout">
+                    <input class="button__logout" type="submit" value="Logout">
+                </a>
+            </div>
+        </div>
+
+        <div class="body--show">
+            <div class="card">
+                <h1 class="title__body">{{post.location}} on {{post.date.strftime("%B %d, %Y")}}</h1>
+                <div class="content">
+                    <label class="form-label" for="content" >What Happened:</label>
+                    <p class="comment">{{post.content}}</p>
+                </div>
+                <div class="content">
+                    <label class="form-label" for="sasquatches" >Number of sasquatches:</label>
+                    <p class="comment">{{post.sasquatches}}</p>
+                </div>
+                <div>
+                    Reported By: {{post.creator.first_name}} {{post.creator.last_name}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

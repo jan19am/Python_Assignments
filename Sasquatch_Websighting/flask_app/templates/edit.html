@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Sasquatch Websighting</title>
+</head>
+<body>
+    <div id="dashboard">
+        <div class="title__main--show">
+            <h1>Sasquatch Websighting</h1>
+            <a href="/dashboard">
+                <input class="button" type="submit" value="Dashboard">
+            </a>
+        </div>
+        <div>
+            <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+            <a href="/logout">
+                <input class="button__logout" type="submit" value="Logout">
+            </a>
+        </div>
+    </div>
+
+    <div class="body--show">
+        <div class="card">
+            <h1  class="title__body">Edit this Sighting</h1>
+            <form action="/update_post/{{post.id}}" method="POST">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="text-danger">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="content">
+                    <div>
+                        <div class="form">
+                            <label class="form-label" for="location">Location:</label>
+                            <input class="form-control" type="text" name="location" value="{{post.location}}">
+                        </div>
+
+                        <div class="form">
+                            <label class="form-label" for="content" >What Happened:</label>
+                            <textarea class="form-control" name="content">{{post.content}}</textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="form">
+                            <label class="form-label" for="date">Date of Sighting:</label>
+                            <input class="form-control" type="date" name="date" value="{{post.date}}">
+                        </div>
+
+                        <div class="form">
+                            <label class="form-label" for="sasquatches" ># of sasquatches:</label>
+                            <input class="form-control" type="number" name="sasquatches" value="{{post.sasquatches}}">
+                        </div>
+                    </div>
+                </div>
+
+                <input class="button" type="submit" value="Report">
+            </form> 
+        </div>
+    </div>
+</body>
+</html>

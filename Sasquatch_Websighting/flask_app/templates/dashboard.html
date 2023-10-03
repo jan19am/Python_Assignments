@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Sasquatch Websighting</title>
+</head>
+<body>
+    <div id="dashboard">
+        <div class="title__main">
+            <h1>Sasquatch Websighting</h1>
+        </div>
+        <div class="title__main--dashboard">
+            <h3>Welcome, {{ user.first_name }} {{ user.last_name }}</h3>
+            <a href="/logout">
+                <input class="button__logout" type="submit" value="Logout">
+            </a>
+        </div>
+    </div>
+
+    <div id="body">
+        <div class="card--report">
+            <h1 class="title__body">Report a Sighting</h1>
+            <form action="/create_post" method="POST">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="text-danger">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="content">
+                    <div>
+                        <div class="form">
+                            <label class="form-label" for="location">Location:</label>
+                            <input class="form-control" type="text" name="location">
+                        </div>
+
+                        <div class="form">
+                            <label class="form-label" for="content" >What Happened:</label>
+                            <textarea class="form-control" name="content"></textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="form">
+                            <label class="form-label" for="date">Date of Sighting:</label>
+                            <input class="form-control" type="date" name="date">
+                        </div>
+
+                        <div class="form">
+                            <label class="form-label" for="sasquatches" ># of sasquatches:</label>
+                            <input class="form-control" type="number" name="sasquatches">
+                        </div>
+                    </div>
+                </div>
+
+                <input class="button" type="submit" value="Report">
+            </form> 
+        </div>
+
+        <div class="card--sightings">
+            <h1 class="title__body">Reported Sightings</h1>
+        {% for post in all_posts %}
+            <div class="content--reported-sightings">
+                <div>
+                    <p>{{post.location}} {{post.date.strftime('%m/%d/%Y')}}</p>
+                    <p>What Happened: {{post.content}}</p>
+                    <p>Reported by: {{post.creator.first_name}} {{post.creator.last_name}}</p>
+                </div>
+            {% if user.id == post.user_id %}
+                <div class="links">
+                    <a href="/edit/{{post.id}}">
+                        <input class="button" type="submit" value="Edit"></a>
+                    <a href="/post/delete/{{post.id}}">
+                        <input class="button" type="submit" value="Delete">
+                    </a>
+                </div>
+            {% endif %}
+            {% if user.id != post.user_id %}
+                <div>
+                    <a href="/show/{{post.id}}">
+                        <input class="button" type="submit" value="View">
+                    </a> 
+                </div>
+            {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
